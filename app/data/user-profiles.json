@@ -1,0 +1,11 @@
+[
+    {
+        "userProfiles": [
+            {
+                "id": 1,
+                "email": "john.doe@gmail.com",
+                "password": "testing123"
+            }
+        ]
+    }
+]
