@@ -1,11 +1,12 @@
 [
     {
-        "userProfiles": [
-            {
-                "id": 1,
-                "email": "john.doe@gmail.com",
-                "password": "testing123"
-            }
-        ]
+        "id": 1,
+        "email": "john.doe@gmail.com",
+        "password": "testing123"
+    },
+    {
+        "id": 0,
+        "email": "string",
+        "password": "string"
     }
 ]
