@@ -22,14 +22,16 @@ def get_userprofile():
     except json.JSONDecodeError:
         return {"error": "Failed to decode JSON file."}
 
-class userRequest(BaseModel):
-    id: int
+class UserRequest(BaseModel):
     email: str
     password: str
 
+class User(UserRequest):
+    id: int
+
 @router.post("/userprofiles", tags=["User Profile"])
 def add_new_userprofile(
-    new_user: userRequest = Body(...)
+    new_user: UserRequest = Body(...)
 ):
     json_path = Path(__file__).parent.parent / "data" / "user-profiles.json"
     
@@ -38,6 +40,8 @@ def add_new_userprofile(
             data = json.load(f)
             print(data)
         
+        id = len(data) + 1
+        new_user = User(id=id, **new_user.model_dump())
         data.append(new_user.model_dump())
 
         with open(json_path, "w", encoding="utf-8") as f:
